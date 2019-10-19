@@ -31,8 +31,11 @@ export const reducer = (state, action) => {
                 }
               })        
             return { todos: newState }
-        case 'DELETE':
-            return state
+        case 'CLEAR':
+            newState = state.todos.filter(todo => {
+                return !todo.completed
+              })
+            return { todos: newState }
         default:
             return state
       }

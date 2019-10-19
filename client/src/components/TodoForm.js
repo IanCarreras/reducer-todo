@@ -23,7 +23,7 @@ const Button = styled.button`
     }
 `
 
-export default function TodoForm({ dispatch, clearCompleted, setSearchTerm }) {
+export default function TodoForm({ dispatch, setSearchTerm }) {
     const [todo, setTodo] = useState('')
 
     const handleSubmit = (e) => {
@@ -39,13 +39,19 @@ export default function TodoForm({ dispatch, clearCompleted, setSearchTerm }) {
         setTodo('')
     }
 
+    const clear = () => {
+        return dispatch({
+            type: 'CLEAR'
+        })
+    }
+
     return (
         <SideBar>
             <form onSubmit={e => handleSubmit(e)}>
                 <Input type='text' value={todo} onChange={e => setTodo(e.target.value)} />
                 <Button type='submit'>Add Todo</Button>
             </form>
-            <Button onClick={e => clearCompleted(e)}>Clear Completed</Button>
+            <Button onClick={() => clear()}>Clear Completed</Button>
             <Input type='text' placeholder='search' onChange={e => setSearchTerm(e.target.value)} />
         </SideBar>
     )
