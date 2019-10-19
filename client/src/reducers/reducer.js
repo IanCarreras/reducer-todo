@@ -2,7 +2,7 @@ export const initialState = {
     todos: [
         {
           item: 'LEARN ABOUT REDUCERS',
-          isCompleted: false,
+          completed: false,
           id: 3892987589
         }
       ]
@@ -10,11 +10,16 @@ export const initialState = {
 
 export const reducer = (state, action) => {
     switch (action.type) {
-        case 'Add':
+        case 'ADD':
+            return {
+                todos: [
+                    ...state.todos,
+                    action.payload
+                ]
+            }
+        case 'TOGGLE':
             return state
-        case 'Toggle':
-            return state
-        case 'Delete':
+        case 'DELETE':
             return state
         default:
             return state

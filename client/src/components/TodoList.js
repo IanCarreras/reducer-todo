@@ -8,7 +8,7 @@ const List = styled.div`
     width: 70%;
 `
 
-export default function TodoList({ toggleTodo, todos }) {
+export default function TodoList({ dispatch, todos }) {
     console.log(todos)
     return (
         <List>
@@ -18,7 +18,7 @@ export default function TodoList({ toggleTodo, todos }) {
                             key={indx}
                             task={todo.item}
                             completed={todo.completed}
-                            onClick={() => toggleTodo(todo.id)} />
+                            dispatch={dispatch} />
                 })
             }
         </List>

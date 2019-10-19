@@ -11,8 +11,8 @@ function App() {
 
   return (
     <div className="App">
-      <TodoForm />
-      <TodoList todos={state.todos} />
+      <TodoForm dispatch={dispatch}/>
+      <TodoList todos={state.todos} dispatch={dispatch} />
     </div>
   );
 }

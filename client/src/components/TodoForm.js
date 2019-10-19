@@ -23,15 +23,18 @@ const Button = styled.button`
     }
 `
 
-export default function TodoForm({ addTodo, clearCompleted, setSearchTerm }) {
+export default function TodoForm({ dispatch, clearCompleted, setSearchTerm }) {
     const [todo, setTodo] = useState('')
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        addTodo({
-            task: todo,
-            id: Date.now(),
-            completed: false
+        dispatch({
+            type: 'ADD',
+            payload: {
+                item: todo,
+                id: Date.now(),
+                completed: false
+            }
         })
         setTodo('')
     }
