@@ -45,6 +45,13 @@ export default function TodoForm({ dispatch, setSearchTerm }) {
         })
     }
 
+    const search = (value) => {
+        return dispatch({
+            type: 'SEARCH',
+            payload: value
+        })
+    }
+
     return (
         <SideBar>
             <form onSubmit={e => handleSubmit(e)}>
@@ -52,7 +59,7 @@ export default function TodoForm({ dispatch, setSearchTerm }) {
                 <Button type='submit'>Add Todo</Button>
             </form>
             <Button onClick={() => clear()}>Clear Completed</Button>
-            <Input type='text' placeholder='search' onChange={e => setSearchTerm(e.target.value)} />
+            <Input type='text' placeholder='search' onChange={e => search(e.target.value)} />
         </SideBar>
     )
 }

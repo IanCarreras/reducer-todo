@@ -9,7 +9,6 @@ const List = styled.div`
 `
 
 export default function TodoList({ dispatch, todos }) {
-    console.log(todos)
     return (
         <List>
             {
