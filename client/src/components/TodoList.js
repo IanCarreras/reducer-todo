@@ -16,6 +16,7 @@ export default function TodoList({ dispatch, todos }) {
                 todos.map((todo, indx) => {
                 return <Todo 
                             key={indx}
+                            id={todo.id}
                             task={todo.item}
                             completed={todo.completed}
                             dispatch={dispatch} />

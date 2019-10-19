@@ -9,6 +9,8 @@ export const initialState = {
 }
 
 export const reducer = (state, action) => {
+    let newState = ''
+
     switch (action.type) {
         case 'ADD':
             return {
@@ -18,7 +20,17 @@ export const reducer = (state, action) => {
                 ]
             }
         case 'TOGGLE':
-            return state
+            newState = state.todos.map(todo => {
+                if (todo.id === action.payload) {
+                  return {
+                    ...todo,
+                    completed: !todo.completed
+                  }
+                } else {
+                  return todo
+                }
+              })        
+            return { todos: newState }
         case 'DELETE':
             return state
         default:

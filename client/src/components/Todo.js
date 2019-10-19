@@ -8,15 +8,16 @@ const Todo = styled.div`
     margin-top: 1rem;
 `
 
-export default function ToDo({ dispatch, task, completed }) {
-    const toggle = () => {
-        return {
+export default function ToDo({ dispatch, id, task, completed }) {
+    const toggle = (id) => {
+        return dispatch({
             type: 'TOGGLE',
-            payload: 'toggle'
-        }
+            payload: id
+        })
     }
+
     return (
-        <Todo className={`todo${completed ? ' completed' : ''}`} onClick={() => toggle()}>
+        <Todo className={`todo${completed ? ' completed' : ''}`} onClick={() => toggle(id)}>
             {task}
         </Todo>
     )
