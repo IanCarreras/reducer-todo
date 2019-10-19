@@ -1,11 +1,11 @@
-
-import React, { useReducer } from 'react'
-
-
 export const initialState = {
-    item: 'Learn about reducers',
-    completed: false,
-    id: 3892987589
+    todos: [
+        {
+          item: 'LEARN ABOUT REDUCERS',
+          isCompleted: false,
+          id: 3892987589
+        }
+      ]
 }
 
 export const reducer = (state, action) => {
@@ -20,5 +20,3 @@ export const reducer = (state, action) => {
             return state
       }
 }
-
-const newStateValue = reducer(initialState);
